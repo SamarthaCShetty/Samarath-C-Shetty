@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class MyClass {
+    static int md(int array[],int n,int m)
+    {
+        int result=Integer.MAX_VALUE;
+        Arrays.sort(array);
+        for(int i=0;i<n-m;i++)
+            result=Math.min(result,array[i+m-1]-array[i]);
+            return result;
+    }
+    static int findele(int res,int array[],int n,int m)
+    {
+        int result=Integer.MAX_VALUE;
+        for(int i=0;i<=n;i++){
+            result=Math.min(result,array[i+m-1]-array[i]);
+                if(res==result)
+                return i;
+                
+        }
+        return 0;
+    }
+    public static void main(String[] args){
+        int[] array={7980,22349,999,2799,229900,11101,9999,2195,9800,4999};
+        String items[]={"MI band:999","sandwich toaster:2195","cult pass:2799","scale:4999","fitbit plus:7980","Microwave oven:9800","Alexa:9999","Digital Camera:11101","ipods:22349","Macbook pro:229900"};
+   int n=array.length;
+   System.out.println("enter the number of employees");
+   Scanner sc=new Scanner( System.in);
+   int m=sc.nextInt();
+   int result=md(array,n,m);
+   System.out.println("num of employees"+m);
+   int firstIndex=findele(result,array,n,m);
+   System.out.println("selected goodies:");
+   for(int i=firstIndex;i<firstIndex+m;i++)
+    System.out.println(items[i]);
+    System.out.println("\n diiference of price:"+result);
+        
+    }
+    }
